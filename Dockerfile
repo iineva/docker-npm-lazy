@@ -9,9 +9,8 @@ EXPOSE 3000
 
 RUN npm install -g npm_lazy
 
-COPY config.js $HOME/config.js
+COPY config.js /config.js
 
 RUN rm -rf /tmp/*
 
-CMD npm_lazy -c $HOME/config.js
-
+CMD npm_lazy -c /config.js
