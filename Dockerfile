@@ -1,10 +1,14 @@
-# docker-npm-lazy
-[npm_lazy](https://github.com/mixu/npm_lazy) on Docker.
+FROM node:argon-slim
 
+MAINTAINER Steven <ineva@qq.com>
 
-# ENV and default value
+ENV HOME /data
+VOLUME $HOME
+WORKDIR $HOME
+EXPOSE 3000
 
-```
+RUN npm install -g npm_lazy
+
 # `cacheDirectory`: Directory to store cached packages.
 ENV CACHE_DIRECTORY /data
 
@@ -48,4 +52,10 @@ ENV REMOTE_URL https://registry.npmjs.com/
 # bind port and host
 ENV PORT 3000
 ENV HOST 0.0.0.0
-```
+
+COPY config.js $HOME/config.js
+
+RUN rm -rf /tmp/*
+
+CMD npm_lazy -c $HOME/config.js
+
