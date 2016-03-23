@@ -1,5 +1,5 @@
 # docker-npm-lazy
-[npm_lazy](https://github.com/mixu/npm_lazy) on Docker.
+[mixu/npm_lazy](https://github.com/mixu/npm_lazy) on Docker.
 
 
 # ENV and default value
